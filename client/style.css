@@ -1,21 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;300;400;500;700;800;900&display=swap");
+/* initial font, body and all (*) style */
+/* @import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;300;400;500;700;800;900&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Alegreya Sans", sans-serif;
-}
+} */
 
-body {
+/* body {
   background: #f6f3fa;
   color: #17112b;
-}
+} */
+
+/* ===== Google Font Import - Poppins ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 #app {
   width: 100vw;
   height: 100vh;
-  background: #f6f3fa;
+  /* background: #f6f3fa; */
 
   display: flex;
   flex-direction: column;
@@ -40,7 +44,7 @@ body {
   scroll-behavior: smooth;
   /* border-radius: 5px;
   box-shadow: 0 1px 10px #beb9d9; */
-  margin-top: 3rem;
+  /* margin-top: 3rem; */
 }
 
 /* hides scrollbar */
@@ -80,9 +84,9 @@ body {
   align-items: center;
 }
 
-.ai .profile {
+/* .ai .profile {
   background: #10a37f;
-}
+} */
 
 .profile img {
   width: 60%;
@@ -116,7 +120,7 @@ body {
   display: none;
 }
 
-form {
+body.light form {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
@@ -140,6 +144,7 @@ select {
   /* border-radius: 5px; */
   border: none;
   outline: none;
+  cursor: pointer;
 }
 
 button {
@@ -156,14 +161,14 @@ form img {
 
 /* custom  */
 
-.nav-bar {
+/* .nav-bar {
   background-color: #8870af;
   display: flex;
   align-items: center;
   width: 100%;
-}
+} */
 
-.nav-bar h1 {
+/* .nav-bar h1 {
   margin: 0;
   padding: 10px;
   color: #f6f3fa;
@@ -174,28 +179,29 @@ form img {
   display: flex;
   margin: 0;
   padding: 0;
-}
+} */
 
-.nav-bar li {
+/* .nav-bar li {
   margin: 0 10px;
 }
 
 .nav-bar a {
   color: #f6f3fa;
   text-decoration: none;
-}
+} */
 
 #screen {
+  margin-top: 5rem;
   width: 100%;
   height: 100%;
 }
 
-#manhattan-img {
+#borough-img {
   width: 15rem;
   height: 15rem;
   /* border: thin solid black; */
   margin: 1rem;
-  background-color: white !important;
+  background-color: white;
   box-shadow: 0 1px 10px #beb9d9;
   border-radius: 5px;
 }
@@ -219,4 +225,351 @@ path {
 
 .borough:hover {
   opacity: 0.8 !important;
+}
+
+/* navbar  and dark/light mode css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.4s ease;
+}
+
+:root {
+  --body-color: #E4E9F7;
+  --nav-color: #FFFFFF;
+  --side-nav: #FFFFFF;
+  --text-color: #343F4B;
+  --search-bar: #FFFFFF;
+  --search-text: #010718;
+}
+
+body {
+  background-color: var(--body-color);
+}
+
+body.dark {
+  --body-color: #18191A;
+  --nav-color: #242526;
+  --side-nav: #242526;
+  --text-color: #CCC;
+  --search-bar: #242526;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 100%;
+  background-color: var(--nav-color);
+  z-index: 100;
+}
+
+body.dark nav {
+  border: 1px solid #393838;
+
+}
+
+nav .nav-bar {
+  position: relative;
+  height: 100%;
+  max-width: 1000px;
+  width: 100%;
+  background-color: var(--nav-color);
+  margin: 0 auto;
+  /* padding: 0 30px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav .nav-bar .sidebarOpen {
+  color: var(--text-color);
+  font-size: 25px;
+  padding: 5px;
+  cursor: pointer;
+  display: none;
+}
+
+nav .nav-bar .logo a {
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.menu .logo-toggle {
+  display: none;
+}
+
+.nav-bar .nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-bar .nav-links li {
+  margin: 0 5px;
+  list-style: none;
+}
+
+.nav-links li a {
+  position: relative;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 10px;
+}
+
+.nav-links li a::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background-color: var(--text-color);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu li a::before {
+  position: relative;
+  font-size: 0px;
+  font-weight: 0;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0px;
+}
+
+.nav-links li:hover a::before {
+  opacity: 1;
+}
+
+
+.nav-bar .darkLight-searchBox {
+  display: flex;
+  align-items: center;
+}
+
+.darkLight-searchBox .dark-light,
+.darkLight-searchBox .searchToggle {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+}
+
+.dark-light i,
+.searchToggle i {
+  position: absolute;
+  color: var(--text-color);
+  font-size: 22px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dark-light i.sun {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dark-light.active i.sun {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dark-light.active i.moon {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.searchToggle i.cancel {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.searchToggle.active i.cancel {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.searchToggle.active i.search {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.searchBox {
+  position: relative;
+}
+
+.searchBox .search-field {
+  position: absolute;
+  bottom: -85px;
+  right: 5px;
+  height: 50px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  background-color: var(--nav-color);
+  padding: 3px;
+  border-radius: 6px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.searchToggle.active~.search-field {
+  bottom: -74px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.search-field::before {
+  content: '';
+  position: absolute;
+  right: 14px;
+  top: -4px;
+  height: 12px;
+  width: 12px;
+  background-color: var(--nav-color);
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.search-field input {
+  height: 100%;
+  width: 100%;
+  padding: 0 45px 0 15px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--search-text);
+  background-color: var(--search-bar);
+}
+
+body.dark .search-field input {
+  color: var(--text-color);
+}
+
+.search-field i {
+  position: absolute;
+  color: var(--nav-color);
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+body.dark .search-field i {
+  color: var(--text-color);
+}
+
+body.dark ul {
+  color: var(--text-color);
+}
+
+body.dark .dropdown-menu {
+  background-color: var(--nav-color);
+}
+
+body.dark select {
+  color: var(--text-color);
+}
+
+body.dark select option {
+  color: var(--text-color);
+  background-color: var(--nav-color);
+}
+
+body.dark form {
+  background-color: var(--nav-color);
+}
+
+body.dark .dropdown-menu:hover {
+  background-color: var(--nav-color);
+}
+
+body.dark h3 {
+  color: var(--text-color);
+}
+
+body.dark .message {
+  color: var(--text-color);
+}
+
+body.dark .message a {
+  color: plum;
+}
+
+body.dark #borough-img {
+  background-color: var(--nav-color);
+}
+
+.nav-links {
+  margin-top: 1rem !important;
+}
+
+@media (max-width: 790px) {
+  nav .nav-bar .sidebarOpen {
+    display: block;
+  }
+
+  .menu {
+    position: fixed;
+    height: 100%;
+    width: 320px;
+    left: -100%;
+    top: 0;
+    padding: 20px;
+    background-color: var(--side-nav);
+    z-index: 100;
+    transition: all 0.4s ease;
+  }
+
+  nav.active .menu {
+    left: -0%;
+  }
+
+  nav.active .nav-bar .navLogo a {
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .menu .logo-toggle {
+    display: block;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-toggle .siderbarClose {
+    color: var(--text-color);
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .nav-bar .nav-links {
+    flex-direction: column;
+    padding-top: 20px;
+  }
+
+  .nav-links li a {
+    display: block;
+    margin-top: 20px;
+  }
+
+  .navLogo {
+    margin-left: 1rem;
+  }
 }

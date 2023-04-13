@@ -7,23 +7,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    
     <link rel="stylesheet" href="style.css" />
     <title>Brooklynites - Staten Island</title>
 </head>
 
 <body>
     <div id="app">
-        <div class="d-flex justify-content-around nav-bar">
+        <nav>
+            <div class="nav-bar">
+                <i class='bx bx-menu sidebarOpen'></i>
+                <span class="logo navLogo"><a href="#">NYC Universities & Colleges</a></span>
+        
+                <div class="menu">
+                    <div class="logo-toggle">
+                        <span class="logo"><a href="index.html">NYC Universities & Colleges</a></span>
+                        <i class='bx bx-x siderbarClose'></i>
+                    </div>
+        
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">More</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="more.html">Top NYC Universities & Colleges</a></li>
+                                <li><a class="dropdown-item" href="bronx.html">Bronx Universities & Colleges</a></li>
+                                <li><a class="dropdown-item" href="brooklyn.html">Brooklyn Universities & Colleges</a></li>
+                                <li><a class="dropdown-item" href="manhattan.html">Manhattan Universities & Colleges</a></li>
+                                <li><a class="dropdown-item" href="queens.html">Queens Universities & Colleges</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact us</a></li>
+        
+                    </ul>
+                </div>
+        
+                <div class="darkLight-searchBox">
+                    <div class="dark-light">
+                        <i class='bx bx-moon moon'></i>
+                        <i class='bx bx-sun sun'></i>
+                    </div>
+        
+                </div>
+            </div>
+        </nav>
+        <!-- old navbar -->
+        <!-- <div class="d-flex justify-content-around nav-bar">
             <h1 class="p-2">NYC Colleges and Universities</h1>
             <ul class="p-2">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
-        </div>
+        </div> -->
         <div class="d-flex justify-content-around row" id="screen">
             <div class="p-2 col-sm-1">
-                <img alt="staten island image" id="manhattan-img" src="assets/statenisland.svg" />
+                <img alt="staten island image" id="borough-img" src="assets/statenisland.svg" />
             </div>
             <div class="p-4 col-sm-7">
                 <form action="/statenisland" method="POST">
