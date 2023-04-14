@@ -32,12 +32,6 @@ app.get('/', async (req, res) => {
     })
 })
 
-// app.get('/manhattan', async (req, res) => {
-//     res.status(200).send({
-//         message: "Hello from manhattan",
-//     })
-// })
-
 app.post('/', async (req, res) => {
     try {
         const prompt = req.body.prompt
