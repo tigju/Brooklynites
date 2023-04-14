@@ -3,6 +3,7 @@ import * as dotenv from 'dotenv'
 import cors from 'cors'
 import { Configuration, OpenAIApi } from 'openai'
 
+
 dotenv.config()
 
 const configuration = new Configuration({
@@ -13,10 +14,16 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration)
 
 const app = express()
+
+const PORT = 5000
+
+// middleware :
+
 // allow crossorigin requests
 app.use(cors())
 // allow to path json from front-end to back-end
 app.use(express.json())
+app.use(express.static('client'))
 
 // dummy root route
 app.get('/', async (req, res) => {
@@ -25,10 +32,15 @@ app.get('/', async (req, res) => {
     })
 })
 
+// app.get('/manhattan', async (req, res) => {
+//     res.status(200).send({
+//         message: "Hello from manhattan",
+//     })
+// })
+
 app.post('/', async (req, res) => {
     try {
         const prompt = req.body.prompt
-
 
         const response = await openai.createCompletion({
             model: "text-davinci-003",
@@ -47,6 +59,7 @@ app.post('/', async (req, res) => {
         console.log(error)
         res.status(500).send({error})
     }
+    
 })
 
-app.listen(5000, () => console.log('Server is running on port http://localhost:5000'))
+app.listen(PORT, () => console.log(`Server is running on port http://localhost:${PORT}`))
