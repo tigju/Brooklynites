@@ -1,5 +1,5 @@
-import bot from './assets/bot.svg'
-import education from './assets/education.svg'
+// import bot from './assets/bot.svg'
+// import education from './assets/education.svg'
 
 const form = document.querySelector('form')
 const chatContainer = document.querySelector('#chat_container')
