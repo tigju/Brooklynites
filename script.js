@@ -1,22 +1,22 @@
 // import bot from './assets/bot.svg'
 // import education from './assets/education.svg'
 
-const form = document.querySelector('form')
+const form = document.querySelector('#gpt')
 const chatContainer = document.querySelector('#chat_container')
 const top_u = document.querySelector('#options')
 
 let loadInterval
 
 function loader(element) {
-    element.textContent = ''
+    element.textContent = '.'
 
     loadInterval = setInterval(() => {
         // Update the text content of the loading indicator
         element.textContent += '.'
 
         // If the loading indicator has reached three dots, reset it
-        if (element.textContent === '....') {
-            element.textContent = ''
+        if (element.textContent === '.....') {
+            element.textContent = '.'
         }
     }, 300);
 }
@@ -75,17 +75,29 @@ function generateUniqueId() {
     />
 </div> */}
 function chatStripe(isAi, value, uniqueId) {
-    return (
+    if (isAi) {
+        return (
+            `
+            <div class="wrapper">
+            
+                <div class="chat">
+
+                    <div class="message" id=${uniqueId}>${value}</div>
+                </div>
+            </div>
         `
-        <div class="wrapper">
-        
-            <div class="chat">
+        )
+    } else {
+        return (
+            `
+            <div>
 
                 <div class="message" id=${uniqueId}>${value}</div>
+
             </div>
-        </div>
-    `
-    )
+        `            
+        )
+    }
 }
 
 const handleSubmit = async (e) => {
@@ -122,17 +134,17 @@ const handleSubmit = async (e) => {
     
     // fetch data from server -> bot's response
 
-   const response = await fetch('https://brooklynites.onrender.com', {
+    const response = await fetch('https://brooklynites.onrender.com', {
     //const response = await fetch('http://localhost:5000', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            prompt: `Give me ${data.get('prompt')}`
+            prompt: `Give me the links to ${data.get('prompt')}`
         })
     })
-
+    console.log(response.body.prompt)
     clearInterval(loadInterval)
     // messageDiv.innerHTML = ''
 
