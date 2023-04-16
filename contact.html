@@ -75,6 +75,13 @@
         <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Fix flickering of dark mode on re-load -->
+    <script>
+      const mode = localStorage.getItem('mode') || 'light-mode';
+      document.documentElement.dataset.mode = mode;
+      console.log(mode)
+    </script>
+    
     <!-- <header>
       <h1>Contact Us</h1>
     </header> -->

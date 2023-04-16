@@ -18,6 +18,13 @@
 </head>
 
 <body>
+    <!-- Fix flickering of dark mode on re-load -->
+    <script>
+        const mode = localStorage.getItem('mode') || 'light-mode';
+        document.documentElement.dataset.mode = mode;
+        console.log(mode)
+    </script>
+    
     <div id="app">
         <nav>
             <div class="nav-bar">

@@ -174,7 +174,7 @@ if (form !== null) {
 
 }
 
-// get response on load is not working on github page 
+// *********** get response on load is not working on github page ***********/ 
 
 // if (window.location.pathname === '/more.html') {
 //     document.addEventListener('DOMContentLoaded', (e) => {
