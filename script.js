@@ -134,8 +134,8 @@ const handleSubmit = async (e) => {
     
     // fetch data from server -> bot's response
 
-    const response = await fetch('https://brooklynites.onrender.com', {
-    //const response = await fetch('http://localhost:5000', {
+    //const response = await fetch('https://brooklynites.onrender.com', {
+    const response = await fetch('http://localhost:5000', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -144,7 +144,7 @@ const handleSubmit = async (e) => {
             prompt: `Give me the links to ${data.get('prompt')}`
         })
     })
-    console.log(response.body.prompt)
+
     clearInterval(loadInterval)
     // messageDiv.innerHTML = ''
 
@@ -171,26 +171,17 @@ if (form !== null) {
     form.addEventListener('change', (e) => {
         handleSubmit(e)
     })
-    // document.addEventListener('DOMContentLoaded', (e) => {
-    //     handleSubmit(e)
-        
-    // })
 
-// } else {
-//     top_u.addEventListener('change', (e) => {
-//         window.location = top_u.value
+}
+
+// get response on load is not working on github page 
+
+// if (window.location.pathname === '/more.html') {
+//     document.addEventListener('DOMContentLoaded', (e) => {
+//         handleSubmit(e)
+        
 //     })
-    // output.addEventListener('click', (e) => {
-    //     window.location = top_u.value
-    // })
-}
-
-if (window.location.pathname === '/more.html') {
-    document.addEventListener('DOMContentLoaded', (e) => {
-        handleSubmit(e)
-        
-    })
-}
+// }
 
 
 // navbar, light/dark mode
