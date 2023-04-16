@@ -1,9 +1,13 @@
-// import bot from './assets/bot.svg'
-// import education from './assets/education.svg'
-
 const form = document.querySelector('#gpt')
 const chatContainer = document.querySelector('#chat_container')
 const top_u = document.querySelector('#options')
+/* light/dark mode*/ 
+const body = document.querySelector("body"),
+    nav = document.querySelector("nav"),
+    modeToggle = document.querySelector(".dark-light"),
+    searchToggle = document.querySelector(".searchToggle"),
+    sidebarOpen = document.querySelector(".sidebarOpen"),
+    siderbarClose = document.querySelector(".siderbarClose");
 
 let loadInterval
 
@@ -35,8 +39,9 @@ function replaceURLs(message) {
     });
 }
 
+/* typing effect */
 function typeText(element, text) {
-    //let index = 0
+
     let formattedText = replaceURLs(text)
 
     let typed = new Typed(element, {
@@ -45,15 +50,6 @@ function typeText(element, text) {
         loop: false,
         showCursor: false
     })
-    // let interval = setInterval(() => {
-    //     if (index < formattedText.length) {
-    //         // element.innerHTML += formattedText.charAt(index)
-    //         element.innerHTML += formattedText.charAt(index)
-    //         index++
-    //     } else {
-    //        clearInterval(interval)
-        // }
-    // }, 20)
 }
 
 // generate unique ID for each message div of bot
@@ -67,13 +63,8 @@ function generateUniqueId() {
     return `id-${timestamp}-${hexadecimalString}`;
 }
 
-// this function to separate messages from chat bot and user     <div class="wrapper ${isAi && 'ai'}">
-{/* <div class="profile">
-    <img
-        src=${isAi ? bot : user}
-        alt="${isAi ? 'bot' : 'user'}"
-    />
-</div> */}
+// this function to separate messages from chat bot and user
+
 function chatStripe(isAi, value, uniqueId) {
     if (isAi) {
         return (
@@ -110,15 +101,12 @@ const handleSubmit = async (e) => {
         let select = form.firstElementChild
         data = new FormData(select.value)
     }
-    
-    // user's chatstripe
-    //chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
 
     // to clear the textarea input 
     form.reset()
     chatContainer.innerHTML = ''
 
-    // bot's chatstripe
+    // bot's response
     const uniqueId = generateUniqueId()
     chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
     chatContainer.innerHTML += chatStripe(true, " ", uniqueId)
@@ -129,13 +117,12 @@ const handleSubmit = async (e) => {
     // specific message div 
     const messageDiv = document.getElementById(uniqueId)
 
-    // messageDiv.innerHTML = "..."
     loader(messageDiv)
     
     // fetch data from server -> bot's response
 
-    const response = await fetch('https://brooklynites.onrender.com', {
     //const response = await fetch('http://localhost:5000', {
+    const response = await fetch('https://brooklynites.onrender.com', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -146,7 +133,6 @@ const handleSubmit = async (e) => {
     })
 
     clearInterval(loadInterval)
-    // messageDiv.innerHTML = ''
 
     if (response.ok) {
         const data = await response.json()
@@ -155,7 +141,7 @@ const handleSubmit = async (e) => {
     } else {
         const err = await response.text()
 
-        // messageDiv.innerHTML = "Something went wrong"
+        messageDiv.innerHTML = "Something went wrong"
         messageDiv.innerHTML = err
         // alert(err)
     }
@@ -185,12 +171,6 @@ if (form !== null) {
 
 
 // navbar, light/dark mode
-const body = document.querySelector("body"),
-    nav = document.querySelector("nav"),
-    modeToggle = document.querySelector(".dark-light"),
-    searchToggle = document.querySelector(".searchToggle"),
-    sidebarOpen = document.querySelector(".sidebarOpen"),
-    siderbarClose = document.querySelector(".siderbarClose");
 
 let getMode = localStorage.getItem("mode");
 if (getMode && getMode === "dark-mode") {
