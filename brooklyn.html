@@ -37,10 +37,11 @@
         
                     <ul class="nav-links">
                         <li><a href="index.html">Home</a></li>
+                        <li><a class="" href="more.html">All NYC Colleges</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">More</a>
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">By Borough</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="more.html">Top NYC Universities & Colleges</a></li>
+                                <!-- <li><a class="dropdown-item" href="more.html">Top NYC Universities & Colleges</a></li> -->
                                 <li><a class="dropdown-item" href="bronx.html">Bronx Universities & Colleges</a></li>
                                 <li><a class="dropdown-item" href="manhattan.html">Manhattan Universities & Colleges</a></li>
                                 <li><a class="dropdown-item" href="queens.html">Queens Universities & Colleges</a></li>
@@ -65,22 +66,22 @@
 
         <div class="d-flex justify-content-around row" id="screen">
             <div class="p-2 col-sm-1">
-                <img alt="brooklyn image" id="borough-img" src="assets/brooklyn.svg" />
+                <img alt="brooklyn image" id="borough-img" src="assets/brooklyn2.svg" />
             </div>
             <div class="p-4 col-sm-7">
                 <form id="gpt" action="/brooklyn" method="POST">
                     <select required name="prompt" id="options">
                         <option value="">Choose from the list...</option>
-                        <option value="Top 5 Public and Private Colleges and Universities in Brooklyn">Top 5
-                            Colleges and Universities</option>
-                        <option value="Links to Public Colleges and Universities in Brooklyn">Public Colleges and
+                        <!-- <option value="Top 5 Public and Private Colleges and Universities in Brooklyn">Top 5
+                            Colleges and Universities</option> -->
+                        <option value="Public Colleges and Universities in Brooklyn">Public Colleges and
                             Universities</option>
-                        <option value="Links to Top 10 Private Universities and Colleges in Brooklyn">Private Colleges
+                        <option value="Private Universities and Colleges in Brooklyn">Private Colleges
                             and
                             Universities</option>
-                        <option value="Links to 2-year Colleges and Universities in Brooklyn">2-year Colleges and
+                        <option value="2-year Colleges and Universities in Brooklyn">2-year Colleges and
                             Universities</option>
-                        <option value="Links to 4-year Colleges and Universities in Brooklyn">4-year Colleges and
+                        <option value="4-year Colleges and Universities in Brooklyn">4-year Colleges and
                             Universities</option>
                     </select>
                 </form>

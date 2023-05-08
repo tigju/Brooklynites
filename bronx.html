@@ -37,10 +37,11 @@
         
                     <ul class="nav-links">
                         <li><a href="index.html">Home</a></li>
+                        <li><a class="" href="more.html">All NYC Colleges</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">More</a>
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">By Borough</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="more.html">Top NYC Universities & Colleges</a></li>
+                                <!-- <li><a class="dropdown-item" href="more.html">Top NYC Universities & Colleges</a></li> -->
                                 <li><a class="dropdown-item" href="brooklyn.html">Brooklyn Universities & Colleges</a></li>
                                 <li><a class="dropdown-item" href="manhattan.html">Manhattan Universities & Colleges</a></li>
                                 <li><a class="dropdown-item" href="queens.html">Queens Universities & Colleges</a></li>
@@ -64,14 +65,13 @@
         </nav>
         <div class="d-flex justify-content-around row" id="screen">
             <div class="p-2 col-sm-1">
-                <img alt="Bronx image" id="borough-img" src="assets/bronx.svg" />
+                <img alt="Bronx image" id="borough-img" src="assets/bronx2.svg" />
             </div>
             <div class="p-4 col-sm-7">
                 <form id="gpt" action="/bronx" method="POST">
                     <select required name="prompt" id="options">
                         <option value="">Choose from the list...</option>
-                        <option value="Top 5 Public and Private Colleges and Universities in Bronx">Top 5 Public and Private
-                            Colleges and Universities</option>
+                        <!-- <option value="Top 5 Colleges and Universities in Bronx">Top 5 Colleges and Universities</option> -->
                         <option value="Public Colleges and Universities in Bronx">Public Colleges and
                             Universities</option>
                         <option value="Private Colleges and Universities in Bronx">Private Colleges and
