@@ -207,7 +207,7 @@ button {
   height: 100%;
 }
 
-#borough-img {
+.borough-img {
   width: 15rem;
   height: 15rem;
   /* border: thin solid black; */
@@ -245,9 +245,16 @@ path {
       -moz-transition-property: none;
       -o-transition-property: none;
       transition-property: none;
+  
+  font-size: 45px;
 }
+
+.img-text {
+  fill: black;
+}
+
 .b-text:hover {
-  fill:white !important;
+  fill:dimgray !important;
   text-decoration: none !important;
       -webkit-transition-property: none;
         -moz-transition-property: none;
@@ -533,7 +540,7 @@ body.dark .message a {
   color: plum;
 }
 
-body.dark #borough-img {
+body.dark .borough-img {
   background-color: var(--nav-color);
 }
 
@@ -548,6 +555,10 @@ body.dark
   fill: gray !important;
   text-decoration: none !important;
   transition: none !important;
+}
+
+body.dark .img-text {
+  fill: white;
 }
 
 .nav-links {
@@ -793,7 +804,7 @@ footer .content .link-boxes {
 
 footer .bottom-details {
   width: 100%;
-  background: #E4E9F7;
+  background: white;
 }
 
 footer .bottom-details .bottom_text {
